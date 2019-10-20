@@ -61,3 +61,19 @@ def remove_customer_cash(customer, cash_to_remove)
   balance = customer[:cash] - cash_to_remove
   customer[:cash] = balance
 end
+
+def customer_pet_count(customer)
+  customer[:pets].count
+end
+
+def add_pet_to_customer(customer, pet_to_add)
+  customer[:pets].push(pet_to_add)
+end
+
+def customer_can_afford_pet(customer, pet_to_buy)
+  if customer[:cash] >= pet_to_buy[:price]
+    return true
+  elsif customer[:cash] < pet_to_buy[:price]
+    return false
+  end
+end
